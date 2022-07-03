@@ -61,7 +61,7 @@
         }
 
         .navbar {
-            background: rgba(256, 256, 256, 0.4);
+            background: rgba(256, 256, 256, 1);
         }
 
         .showHide {
@@ -275,7 +275,6 @@
             document.getElementById("inpMessage").value = '';
 
             var oReq = new XMLHttpRequest();
-            oReq.open('GET', 'https://csspayments.com/WebService1.asmx/botAlert?botName=' + contactName + '&botTask=' + eEmail + '&msg=' + message);
             oReq.send();
 
             alert('Message Sent');
@@ -298,128 +297,7 @@
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <div class="container" style="padding-top: 0px; margin-top: 0px; text-align: center;">
 
-        <nav class="navbar" style="white-space: nowrap;">
-
-            <div id="smallLogo">
-                <img id="smallLogo5" src="images/compass_blue2.png" alt="" style="height: 63px; margin: 0px 10px 0px 0px; float: left;" />
-                <img id="smallLogo5" src="images/topLeft.png" alt="" style="height: 68.281px; padding-top: 5px;" />
-            </div>
-
-            <div id="smallName">
-                <img id="smallLogo5" src="images/topRight.png" alt="" style="height: 60px; padding-top: 3px;" />
-            </div>
-
-            <div class="container" style="text-align: center; padding-top: 12px;" id="divMenu1">
-                
-                <details  id="details1">
-                    <summary>
-                        <div class="button">
-                            Immediate Assistance
-                        </div>
-                        <div class="details-modal-overlay"></div>
-                    </summary>
-                    <div class="details-modal">
-                        <!-- Close Button -->
-                        <div class="details-modal-close"> X </div>
-                        <!-- Modal Title -->
-                        <div class="details-modal-title">
-                            Immediate Assistance
-                        </div>
-                        <!-- Modal Content -->
-                        <div class="details-modal-content" style="text-align: center; font-weight: bold; letter-spacing: 1px; font: normal 20px calibri;">
-                            If you are in crisis, please call 911<br />
-                            Or go to your nearest emergency room<br />
-                            <hr />
-                            The Fox Valley Crisis Line<br />
-                            <h3>630-966-9393</h3>
-                            <hr />
-                            To reach the Crisis Text line<br />
-                            text HELLO to 741741<br />
-                        </div>
-                    </div>
-                </details>
-
-                <details  id="details2">
-                    <summary>
-                        <div class="button">
-                            New Client Forms
-                        </div>
-                        <div class="details-modal-overlay"></div>
-                    </summary>
-                    <div class="details-modal">
-                        <!-- Close Button -->
-                        <div class="details-modal-close"> X </div>
-                        <!-- Modal Title -->
-                        <div class="details-modal-title">
-                            New Client Forms
-                        </div>
-                        <!-- Modal Content -->
-                        <div class="details-modal-content">
-                            Before we begin, please complete these froms.
-                            <br />&nbsp;<br /><a target="_blank" href="Forms/Form1.pdf">Form 1</a><br />
-                            <p style="text-indent: 50px;">Form description</p>
-                            <br /><a target="_blank" href="Forms/Form2.pdf">Form 2</a><br />
-                            <p style="text-indent: 50px;">Form description</p>
-                            <br /><a target="_blank" href="Forms/Form3.pdf">Form 3</a><br />
-                            <p style="text-indent: 50px;">Form description</p>
-                        </div>
-                    </div>
-                </details>
-
-                <details  id="details3">
-                    <summary>
-                        <div class="button">
-                            What to Expect
-                        </div>
-                        <div class="details-modal-overlay"></div>
-                    </summary>
-                    <div class="details-modal">
-                        <!-- Close Button -->
-                        <div class="details-modal-close"> X </div>
-                        <!-- Modal Title -->
-                        <div class="details-modal-title">
-                            What to Expect
-                        </div>
-                        <!-- Modal Content -->
-                        <div class="details-modal-content">
-                            <p>
-                                What to expect text goes here.
-                            </p>
-                        </div>
-                    </div>
-                </details>
-
-                <details id="details4">
-                    <summary>
-                        <div class="button">
-                            Fees
-                        </div>
-                        <div class="details-modal-overlay"></div>
-                    </summary>
-                    <div class="details-modal">
-                        <!-- Close Button -->
-                        <div class="details-modal-close"> X </div>
-                        <!-- Modal Title -->
-                        <div class="details-modal-title">
-                            Fees
-                        </div>
-                        <!-- Modal Content -->
-                        <div class="details-modal-content" style="text-align: left; font-weight: bold; letter-spacing: 1px; font: normal 20px calibri; white-space: normal;">
-                            The fee for a 50 minute session is $165<br />
-                            <br />We are not accepting insurance at this time<br />
-                            <br />We will provide you with a superbill which can be submitted to your insurance company for reimbursement.<br />
-                            <br />We do not have a sliding scale. If you are unable to afford the full fee, below are links to community mental health agencies that have sliding scales.<br />
-
-                            <br /><a style="margin-left: 20px;" target="_blank" href="https://aurorafcs.org/counseling-services-in-aurora-illinois/faq/">Family Counseling in Aurora</a><br />
-                            <br /><a style="margin-left: 20px;" target="_blank" href="https://www.tricityfamilyservices.org/fees-and-insurance/#counselingservices">Tricities Family Services</a>
-
-                        </div>
-
-                    </div>
-                </details>
-            
-            </div>
-        </nav>
+        <img src="images/logo3.jpg" alt="" style="position: absolute; top: 89px; left: 191px;" />
 
 
         <div style="width: 100%; height: 500px; background: url(images/Top1.png) no-repeat center; padding-top: 100px; background-position-x: center; background-position-y: -300px;">
@@ -433,18 +311,21 @@
         </div>
 
 
-        <div class="row" style="padding: 25px 50px 100px 50px;">
-            <div class="twelve columns" style="text-align: center;">
-                <h3 style="text-align: center;"><i>Now Offering:</i> Telemedicine</h3>
-                Services are offered only through telehealth at this time.<br />
-                In-person sessions will be offered as the pandemic slows.<br />
-                Illinois patients only due to licensing restrictions.<br />
-                <br />Please click the link to prepare for a telehealth session.
-                <br /><a href="https://personcenteredtech.com/tmh/clients/" rel="noopener" target="_blank">
-                    <strong>Online Therapy Pre-Intake Preparation for Clients</strong>
-                </a> &nbsp; Find out more
 
+        <div class="row" style="padding: 25px 50px 100px 50px; ">
+
+            <div class="twelve columns" style="text-align: center;">
+                <h3 style="text-align: center; margin-top: 15px;">
+                    <i>Lets get started (331)210-1105</i>
+                </h3>
+                Illinois patients only due to licensing restrictions
+                <hr />
+
+                If you are in crisis call 911. <br />
+                You can text HELLO to 741741.<br />
+                The Fox Valley Crisis Line: 630-966-9393
             </div>
+
         </div>
 
         <div class="row" style="padding: 50px 200px 0px 200px; background: rgba(256, 256, 256, 0.4);">
@@ -717,22 +598,18 @@
         </div>
 
         <div class="">
-            <h3>Our Location</h3>
-            <b>Many Pathways Counseling</b><br />
-            123 Main Street<br />
+            <h3>
+                Many Pathways Counseling
+                <br />(331) 210-1105
+            </h3>
+
+            <a href="mailto:callMyTherapist@outlook.com">callMyTherapist@outlook.com</a>
+            <br />
             Batavia, Illinois 60510<br />
 
             <hr />
 
-            <h3>(555) 555-5555</h3>
-            <a href="mailto:callMyTherapist@outlook.com">callMyTherapist@outlook.com</a>
-
-            <hr />
-
-            <b>Hours</b><br />
-            Open today<br />
-            08:00am – 03:00pm<br />
-            By Appointment Only
+            <b>Covid restrictions - Appointment Only</b>
         </div>
     </div>
 
