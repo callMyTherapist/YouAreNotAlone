@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Basic Page Needs
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <title>PathWays</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Mobile Specific Metas
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- FONT
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+
+    <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+
+    <!-- Scripts
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/prettify-theme.css">
+    <script src="js/site.js"></script>
+
+    <!-- Favicon
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="icon" type="image/png" href="images/Many_Pathways_Counseling.png">
+
+    <style type="text/css">
+        
+        @media screen and (max-width: 600px) {
+            #divMoreInfo1 {display:none;}
+            #divMoreInfo2 {display:block; padding: 0px;}
+        }
+
+        @media screen and (max-width: 600px) {
+            #divDetails1 {display:none;}
+        }
+
+        @media screen and (max-width: 600px) {
+            #divDetails2 {display:none;}
+        }
+        
+        body {
+            background-image: url('images/sand2.jpg');
+            font-family: 'Candara', 'Calibri light';
+            -webkit-touch-callout: none; /* iOS Safari */
+            -webkit-user-select: none; /* Safari */
+            -khtml-user-select: none; /* Konqueror HTML */
+            -moz-user-select: none; /* Old versions of Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+        }
+
+        hr {
+            margin-top: 15px;
+            margin-bottom: 15px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(153, 180, 209, 0.75), rgba(0, 0, 0, 0));
+        }
+
+        .navbar {
+            background: rgba(256, 256, 256, 1);
+        }
+
+        .showHide {
+            opacity: .8;
+            cursor: pointer;
+            border: solid 1px silver;
+            display: inline-block;
+            padding: 0px 8px 0px 8px;
+            border-radius: 40%;
+            float: right;
+        }
+
+        #smallName {
+            padding: 2px;
+            float: right;
+            text-align: center;
+        }
+
+        #smallLogo {
+            padding-left: 5px;
+            float: left;
+        }
+
+        .section1a {
+            position: relative;
+            background: url(images/fork1.png) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        .section2a {
+            height: 600px;
+            background: url(images/fork2.png) no-repeat center center fixed;
+        }
+
+
+
+
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
+
+        /* modal body */
+        .details-modal {
+            background: #ffffff;
+            border-radius: 0.5em;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            left: 50%;
+            max-width: 90%;
+            pointer-events: none;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 30em;
+            text-align: left;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            margin-top: 250px;
+        }
+
+            /* close button */
+            .details-modal .details-modal-close {
+                align-items: center;
+                color: #111827;
+                padding: 10px;
+                display: flex;
+                justify-content: center;
+                pointer-events: none;
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 4.5em;
+            }
+
+            /* modal title */
+            .details-modal .details-modal-title {
+                color: #111827;
+                padding: 10px;
+                pointer-events: all;
+                position: relative;
+                width: calc(100% - 4.5em);
+                font-weight: bold;
+            }
+
+
+            /* modal content */
+            .details-modal .details-modal-content {
+                border-top: 1px solid #e0e0e0;
+                padding: 2em;
+                pointer-events: all;
+                overflow: auto;
+            }
+
+        /* modal overlay */
+        .details-modal-overlay {
+            transition: opacity 0.2s ease-out;
+            pointer-events: none;
+            background: rgba(15, 23, 42, 0.8);
+            position: fixed;
+            opacity: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            top: 0;
+        }
+
+        details[open] .details-modal-overlay {
+            pointer-events: all;
+            opacity: 0.5;
+        }
+
+        details summary:focus {
+            outline: none;
+        }
+
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details {
+            display: inline-block;
+        }
+
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+            .container {
+                display: none; 
+            }
+        }
+
+    </style>
+
+    <script type="text/javascript">
+        var i = 0;
+        function ChangeBg() {
+            i = i + 1
+            document.getElementById("theBody").style.backgroundImage = "url('images/bak" + i + ".jpg')"
+            document.getElementById("aTrauma").innerHTML = i
+        }
+
+
+        var f = 0;
+        var fonts = ['Arial', 'Calibri light', 'Calibri', 'Times New Roman', 'Helvetica', 'Times', 'Verdana', 'Courier', 'Arial Narrow', 'Candara', 'Geneva', 'Optima', 'Cambria', 'Garamond', 'Perpetua', 'Brush Script MT', 'Lucida Bright', 'Comic San']
+        function ChangeFont() {
+            document.getElementById("theBody").style.fontFamily = fonts[f]
+            document.getElementById("aAnxiety").innerHTML = f
+            f = f + 1
+        }
+
+        function Show(i) {
+            document.getElementById("sMore" + i).style.display = 'block'
+            document.getElementById("dHide" + i).style.display = 'inline-block'
+            document.getElementById("dShow" + i).style.display = 'none'
+        }
+
+        function Hide(i) {
+            document.getElementById("sMore" + i).style.display = 'none'
+            document.getElementById("dHide" + i).style.display = 'none'
+            document.getElementById("dShow" + i).style.display = 'inline-block'
+        }
+
+        function HideLogo() {
+            //document.getElementById("smallLogo").style.display = 'none'
+            //document.getElementById("smallName").style.display = 'none'
+            document.getElementById("smallLogo").style.display = 'inline-block'
+            document.getElementById("smallName").style.display = 'inline-block'
+        }
+
+        function ShowLogo() {
+            document.getElementById("smallLogo").style.display = 'inline-block'
+            document.getElementById("smallName").style.display = 'inline-block'
+        }
+
+        function MoreInfo(id) {
+            try {
+                for (var i = 1; i < 16; i++) {
+                    document.getElementById("divMoreInfo" + i).style.display = 'none'
+                }
+            } catch (i) { }
+            document.getElementById("divMoreInfo" + id).style.display = 'block'
+            document.getElementById("divEndOfPage").scrollIntoView();
+        }
+
+        function SendMessage(obj) {
+
+            obj.disabled = 'true';
+
+            var contactName = document.getElementById("inpContactName").value;
+            var eEmail = document.getElementById("inpEmail").value;
+            var message = document.getElementById("inpMessage").value;
+
+            contactName = ReplaceAll(contactName, '?', '.')
+            eEmail = ReplaceAll(eEmail, '?', '.')
+            message = ReplaceAll(message, '?', '.')
+
+            contactName = ReplaceAll(contactName, '&', '.')
+            eEmail = ReplaceAll(eEmail, '&', '.')
+            message = ReplaceAll(message, '&', '.')
+
+            contactName = ReplaceAll(contactName, ';', '.')
+            eEmail = ReplaceAll(eEmail, ';', '.')
+            message = ReplaceAll(message, ';', '.')
+
+            document.getElementById("inpContactName").value = '';
+            document.getElementById("inpEmail").value = '';
+            document.getElementById("inpMessage").value = '';
+
+            var oReq = new XMLHttpRequest();
+            oReq.send();
+
+            alert('Message Sent');
+            obj.disabled = 'false';
+        }
+
+        function ReplaceAll(string, search, replace) {
+            return string.split(search).join(replace);
+        }
+
+
+
+
+    </script>
+</head>
+
+<body class="code-snippets-visible has-docked-nav" id="theBody" style="padding-top: 0px;">
+
+    <!-- Primary Page Layout
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <div class="container" style="padding-top: 0px; margin-top: 0px; text-align: center;">
+
+        
+
+
+        <div style="width: 100%; height: 500px; background: url(images/Top1.png) no-repeat center; padding-top: 100px; background-position-x: center; background-position-y: -300px;">
+            <img src="images/logo4.png" style="position: absolute; margin-top: -14px; margin-left: -123px;" /><img src="images/Welcome1.png" style="margin: auto;" />
+            <h4 class="twelve columns value-prop" style="margin-top: 25px; letter-spacing: 1px; font-family: Calibri; color: #112408; text-shadow: 0px 2px 3px rgba(0,0,0,.5)">
+                Welcome to <b>Many Pathways Counseling</b>.
+                <br />&nbsp;
+                <br />The mission of Many Pathways Counseling is to
+                <br />serve as your supportive guide to healing.
+            </h4>
+        </div>
+
+
+
+        <div class="row" style="padding: 25px 50px 100px 50px; ">
+
+            <div class="twelve columns" style="text-align: center;">
+                <h3 style="text-align: center; margin-top: 15px;">
+                    <i>Lets get started (331)210-1005</i>
+                </h3>
+                Illinois residents only due to licensing restrictions
+                <hr />
+                If you are having suicidal thoughts or are in crisis, please call 988.<br>
+                This is the mental health hotline for the State of Illinois.<br>
+                               
+            </div>
+
+        </div>
+
+        <div id="divMoreInfo1" class="row" style="padding: 50px 100px 0px 100px; background: rgba(256, 256, 256, 0.4);">
+            <div class="twelve columns" style="padding: 10px; margin-top: 70px; text-align: center;">
+                <h3 style="margin-top: -110px; text-align: center;">
+                    Ginnie Seaman MA, LCPC, CADC, GRE<br>
+                    Many Pathways Founder</h3>
+                <img src="images/logo4.png" alt="Ginnie Seaman" style="float: left; margin-right: 15px">
+                My passion as a therapist is assisting people to find the best way for them to heal.
+                I strongly believe that therapy needs to be tailored to the person seeking healing.
+                That is why I chose the name “Many Pathways” for my practice.  We will find the best route for you to reach your goals.  I have had extensive training and experience in many techniques and approaches in my 30 years as a therapist.
+                               <br />&nbsp;
+            </div>
+        </div>
+
+        <div id="divMoreInfo2" class="row" style="padding: 50px 10px 0px 10px; background: rgba(256, 256, 256, 0.4);">
+             <div class="twelve columns" style="padding: 0px; margin-top: 70px; text-align: center;">
+                <h3 style="margin-top: -110px; text-align: center;">
+                    Specializing in treating
+                    <br>Depression, Trauma, Anxiety, Substance Abuse
+                    <br>Ginnie Seaman
+                    <br>MA, LCPC, CADC, GRE
+                    <br>Many Pathways Founder</h3>
+                 <br><img src='images/20221031_150625.png'  width="190" height="212" style="display: none;">
+<br><video width="320" height="240" controls>
+  <source src="images/VID_20221102_180925.mp4" type="video/mp4">
+</video>
+             </div>
+
+        </div>
+
+
+        <div class="row" style="padding: 50px 200px 0px 200px;" id="divDetails1">
+            <div id="Depression" class="six columns" style="padding: 10px; margin-top: 70px; text-align: left;">
+                <h3 style="position: absolute; margin: -55px 0px 0px -4px;">Depression</h3>
+                <img src="images/img4.png" alt="Depression" style="float: left; margin-right: 10px; width: 50%;">
+                Depression is more than normal ups and downs. Let’s heal what hurts.  You don’t have to feel this bad. Symptoms of depression can inlcude:  sadness, loss of pleasure in things that used to feel good, crying, feeling hopeless and helpless, body aches, weight gain or loss, sleeping too much or can’t sleep enough, feeling guilty, tired all the time, thinking about dying or being dead.  Call for an appointment whether its with me or someone else.  
+                <span id="sMore3" style="display: none;">
+                    
+                </span>
+                <br>
+                <div id="dHide3" class="showHide" onclick="Hide(3)" style="display: none;">••▲••</div>
+                <div id="dShow3" class="showHide" onclick="Show(3)" style="display: none;">Read More</div>
+            </div>
+
+            <div id="Trauma" class="six columns" style="padding: 10px; margin-top: 70px;  text-align: left;">
+                <h3 style="position: absolute; margin: -55px 0px 0px -4px;">Trauma</h3>
+                <img src="images/img8.png" alt="Trauma" style="float: left; margin-right: 10px; width: 50%;">
+                Bad things happen.  If you are lucky and have enough support and resilience, you can get past it.  But it doesn’t always work out that way.  Trauma from a young age, repeated trauma or very severe trauma can be crippling.  It can interfere with your ability to cope with life in a healthy way.
+                Take the first step and call.
+                <span id="sMore1" style="display: none;">
+                    Trauma can cause people to develop unhealthy coping to make the pain go away such as drinking too much, using drugs, becoming emotionally numb, gambling, eating too much and many other problems.  Trauma damages your relationships, your work and your ability to enjoy life.
+                    Many people never get started addressing their trauma because they are afraid it will hurt too much.  You can first learn healthy coping skills.  When you are less overwhelmed, you can then decide if you want to address the trauma directly.  Therapy will go at the pace you decide.  You have the control about how deep and how fast. 
+                </span>
+                <br>
+                <div id="dHide1" class="showHide" onclick="Hide(1)" style="display: none;">••▲••</div>
+                <div id="dShow1" class="showHide" onclick="Show(1)">Read More</div>
+            </div>
+        </div>
+
+        <div class="row" style="padding: 50px 200px 0px 200px;" id="divDetails2">
+            <div id="Anxiety" class="six columns" style="padding: 10px; margin-top: 70px; text-align: left;">
+                <h3 style="position: absolute; margin: -55px 0px 0px -4px;">Anxiety</h3>
+                <img src="images/img11.jpg" alt="Anxiety" style="float: left; margin-right: 10px; width: 50%;">
+                Everyone has some anxiety.  But for some people, it can be the main focus of life.  Constant fear about when the next panic attack might strike.  Not being able to stop worrying about things that may never happen.  Racing thoughts.  Trying all sorts of things to reduce the discomfort.
+                <span id="sMore2" style="display: none;">
+                    Repeating behaviors if they help even a little. There are many techniques and coping skills you can learn.  We will work together to find what works best for you.
+                </span>
+                <br>
+                <div id="dHide2" class="showHide" onclick="Hide(2)" style="display: none;">••▲••</div>
+                <div id="dShow2" class="showHide" onclick="Show(2)">Read More</div>
+
+            </div>
+
+            <div id="Substance Abuse" class="six columns" style="padding: 10px; margin-top: 70px;  text-align: left;">
+                <h3 style="position: absolute; margin: -55px 0px 0px -4px;">Substance Abuse</h3>
+                <img src="images/img3.png" alt="Addiction" style="float: left; margin-right: 10px; width: 50%;">
+                Substance abuse can damage your life by harming you and the people around you.  We can begin by reducing the harm caused to you and your loved ones.  We can explore the best way for you to live a healthy and enjoyable life.  You will not be shamed or negatively judged. 
+                <span id="sMore4" style="display: none;">
+                    People can have problems with behaviors or substances for a number of reasons.  For some people it appears to be mostly genetic.  Other people develop a problem while trying to cope with trauma.  Whatever the cause, it is possible to improve the situation.
+                    For many decades, Alcoholics Anonymous was considered the only way to get better.  It is a wonderful and successful program for many people.  To others, it feels like being a round peg being hammered into a square hole.
+                    <br>
+                    There are other ways for people to improve their lives. Call me to explore your options. 
+                </span>
+                <br>
+                <div id="dHide4" class="showHide" onclick="Hide(4)" style="display: none;">••▲••</div>
+                <div id="dShow4" class="showHide" onclick="Show(4)">Read More</div>
+            </div>
+
+        </div>
+
+
+
+
+        <div class="row" style="min-height: 450px; display: none;">
+
+            <div id="divMoreInfo2" class="twelve columns" style="background: rgba(256, 256, 256, 0.4); padding: 10px; margin-top: 70px; display: none;">
+                <h3 style="position: absolute; margin: -55px 0px 0px -4px;">Credentials</h3>
+                <img src="images/faq.jpg" alt="Credentials" style="float: left; margin-right: 10px; width: 50%; display: none;">
+                &bull; I have my Master’s Degree in Clinical Psychology.
+                &bull; I am a licensed clinical professional counselor.
+                &bull; I am a certified Alcohol and Other Drug counselor.
+                &bull; I have a Gender Competency Endorsement which means I have specialized training in women’s treatment.
+                &bull; I have taught at two colleges and one university.
+                &bull; I have taken the needed training to become a trauma specialist and a gambling addiction counselor but chose not to take the tests to become certified.
+            </div>
+
+            <div id="divMoreInfo3" class="twelve columns" style="background: rgba(256, 256, 256, 0.4); padding: 10px; margin-top: 70px; display: none;">
+                <h3 style="position: absolute; margin: -55px 0px 0px -4px;">Ethics</h3>
+                <img src="images/faq.jpg" alt="???" style="float: left; margin-right: 10px; width: 50%; display: none;">
+                I follow the Code of Ethics of the American Counseling Association of which I am a member.
+            </div>
+
+            <div id="divMoreInfo4" class="twelve columns" style="background: rgba(256, 256, 256, 0.4); padding: 10px; margin-top: 70px; display: none;">
+                <h3 style="position: absolute; margin: -55px 0px 0px -4px;">Referances</h3>
+                <img src="images/faq.jpg" alt="???" style="float: left; margin-right: 10px; width: 50%; display: none;">
+                Referances
+            </div>
+
+            <div id="divMoreInfo5" class="twelve columns" style="background: rgba(256, 256, 256, 0.4); padding: 10px; margin-top: 70px; display: none;">
+                <h3 style="position: absolute; margin: -55px 0px 0px -4px;">Assoceations</h3>
+                <img src="images/faq.jpg" alt="???" style="float: left; margin-right: 10px; width: 50%; display: none;">
+                Assoceations.
+            </div>
+
+            <div id="divMoreInfo6" class="twelve columns" style="background: rgba(256, 256, 256, 0.4); padding: 10px; margin-top: 70px; display: none;">
+                <h3 style="position: absolute; margin: -55px 0px 0px -4px;">Dui sapien eget mi</h3>
+                <img src="images/faq.jpg" alt="???" style="float: left; margin-right: 10px; width: 50%; display: none;">
+                Dui sapien eget mi.
+            </div>
+
+            <div id="divMoreInfo7" class="twelve columns" style="background: rgba(256, 256, 256, 0.4); padding: 10px; margin-top: 70px; display: none;">
+                <h3 style="position: absolute; margin: -55px 0px 0px -4px;">Neque viverra justo</h3>
+                <img src="images/faq.jpg" alt="???" style="float: left; margin-right: 10px; width: 50%; display: none;">
+                Neque viverra justo.
+            </div>
+
+            <div id="divMoreInfo8" class="twelve columns" style="background: rgba(256, 256, 256, 0.4); padding: 10px; margin-top: 70px; display: none;">
+                <h3 style="position: absolute; margin: -55px 0px 0px -4px;">Dui sapien eget mi</h3>
+                <img src="images/faq.jpg" alt="???" style="float: left; margin-right: 10px; width: 50%; display: none;">
+                Dui sapien eget mi.
+            </div>
+
+
+            <div id="divMoreInfo9" class="twelve columns" style="background: rgba(256, 256, 256, 0.4); padding: 10px; margin-top: 70px; display: none;">
+                <h3 style="position: absolute; margin: -55px 0px 0px -4px;">What can I do right now</h3>
+                <img src="images/img10.png" alt="right now" style="float: left; margin-right: 10px; width: 50%;">
+                <b>&bull; Coping with overwhelming feelings</b><br />
+                You can do this alone or have someone read to you.<br />
+                Name five things in the room that are blue.<br />
+                Name five things in the room that are green.<br />
+                Name five things in the room that are red.<br />
+                <br />&bull; <b>Are you calmer?</b><br />
+                Look at the list of healthy ways to cope to distract yourself.
+                Only do things that help both in the short and long term.  Do not choose anything that has potential negative results for you.<br />
+                <br />&bull; <b>Healthy Ways to Cope</b>
+                • Go for a walk.
+                • Eat a piece of fruit
+                • Write down five good things in your life
+                • Sing with a favorite song
+                • Color
+                • Pet an animal
+                • Draw a silly face
+                • Play with a child
+                • Hug someone
+                • Play with a kitten or puppy
+                • Take a warm bath
+                • Stretch
+                • Compliment someone
+                • Read a book
+                • Put away one thing
+                • Call a positive friend
+                • Name one thing you like about yourself
+                • Bake or cook
+                • Watch a comedy
+                • Go to the library
+                • Sit in the sunshine
+                • Listen for a bird call
+                • Put on your favorite perfume
+                • Smell the spices in your cabinet
+                • Use some lotion
+                • Do something nice for someone
+                • Write a card to someone you care about
+                • Dance
+                • Do some yoga
+                • Watch a cartoon
+                • Do a craft project
+                <br />
+
+            </div>
+
+            <div id="divMoreInfo10" class="twelve columns" style="background: rgba(256, 256, 256, 0.4); padding: 10px; margin-top: 70px; display: none;">
+                <h3 style="position: absolute; margin: -55px 0px 0px -4px;">Eget mi lorem</h3>
+                <img src="images/faq.jpg" alt="???" style="float: left; margin-right: 10px; width: 50%; display: none;">
+                Eget mi lorem.
+            </div>
+
+            <div id="divMoreInfo11" class="twelve columns" style="background: rgba(256, 256, 256, 0.4); padding: 10px; margin-top: 70px; display: none;">
+                <h3 style="position: absolute; margin: -55px 0px 0px -4px;">Eget mi lorem</h3>
+                <img src="images/faq.jpg" alt="???" style="float: left; margin-right: 10px; width: 50%; display: none;">
+                Eget mi lorem.
+            </div>
+
+            <div id="divMoreInfo12" class="twelve columns" style="background: rgba(256, 256, 256, 0.4); padding: 10px; margin-top: 70px; display: none;">
+                <h3 style="position: absolute; margin: -55px 0px 0px -4px;">Neque viverra justo</h3>
+                <img src="images/faq.jpg" alt="???" style="float: left; margin-right: 10px; width: 50%; display: none;">
+                Neque viverra justo.
+            </div>
+
+            <div id="divMoreInfo13" class="twelve columns" style="background: rgba(256, 256, 256, 0.4); padding: 10px; margin-top: 70px; display: none;">
+                <h3 style="position: absolute; margin: -55px 0px 0px -4px;">Dui sapien eget mi</h3>
+                <img src="images/faq.jpg" alt="???" style="float: left; margin-right: 10px; width: 50%; display: none;">
+                Dui sapien eget mi.
+            </div>
+
+            <div id="divMoreInfo14" class="twelve columns" style="background: rgba(256, 256, 256, 0.4); padding: 10px; margin-top: 70px; display: none;">
+                <h3 style="position: absolute; margin: -55px 0px 0px -4px;">Eget mi sapien Dui</h3>
+                <img src="images/faq.jpg" alt="???" style="float: left; margin-right: 10px; width: 50%; display: none;">
+                Eget mi sapien Dui.
+            </div>
+
+            <div id="divMoreInfo15" class="twelve columns" style="background: rgba(256, 256, 256, 0.4); padding: 10px; margin-top: 70px; display: none;">
+                <h3 style="position: absolute; margin: -55px 0px 0px -4px;">Nec ultrices</h3>
+                <img src="images/faq.jpg" alt="???" style="float: left; margin-right: 10px; width: 50%; display: none;">
+                Nec ultrices.
+            </div>
+
+        </div>
+
+
+        <div class="row" style="margin-top: 50px; display: none;">
+
+            <div id="Faq" class="four columns" style="background: rgba(256, 256, 256, 0.4); padding: 10px; text-align: center;">
+                <h2>About Me</h2>
+                <a class="button" style="width: 100%;" onclick="MoreInfo(1)">Your Therapist</a>
+                <a class="button" style="width: 100%;" onclick="MoreInfo(2)">Credentials</a>
+                <a class="button" style="width: 100%;" onclick="MoreInfo(3)">Code of Ethics</a>
+                <a class="button" style="width: 100%;" onclick="MoreInfo(4)">Referances</a>
+                <a class="button" style="width: 100%;" onclick="MoreInfo(5)">Assoceations</a>
+            </div>
+
+            <div id="Tips" class="four columns" style="background: rgba(256, 256, 256, 0.4); padding: 10px; text-align: center;">
+                <h2>FAQs</h2>
+                <a class="button" style="width: 100%;" onclick="MoreInfo(9)">What can I do right now</a>
+                <a class="button" style="width: 100%;" onclick="MoreInfo(8)">Addiction Treatments</a>
+                <a class="button" style="width: 100%;" onclick="MoreInfo(6)">Depression Treatments</a>
+                <a class="button" style="width: 100%;" onclick="MoreInfo(7)">Trauma Treatments</a>
+                <a class="button" style="width: 100%;" onclick="MoreInfo(10)">Anxiety Treatments</a>
+            </div>
+
+            <div id="Fees" class="four columns" style="background: rgba(256, 256, 256, 0.4); padding: 10px; text-align: center;">
+                <h2>Help is Here</h2>
+                <a class="button" style="width: 100%;" onclick="MoreInfo(11)">Locations</a>
+                <a class="button" style="width: 100%;" onclick="MoreInfo(12)">Availablility</a>
+                <a class="button" style="width: 100%;" onclick="MoreInfo(13)">Contacts</a>
+                <a class="button" style="width: 100%;" onclick="MoreInfo(14)">Insurance</a>
+                <a class="button" style="width: 100%;" onclick="MoreInfo(15)">Payment Options</a>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div class="row" style="padding: 50px; margin-top: 50px; text-align: center; background: rgba(256, 256, 256, 0.4); ">
+        <div class="six columns" style='display: none;'>
+            <h3>Contact Us</h3>
+            <div style="text-align: left; margin: auto; display: inline-block;">
+                Name :<br />
+                <input type="text" style="width: 300px;" id="inpContactName" /><br />
+                Email :<br />
+                <input type="text" style="width: 300px;" id="inpEmail" /><br />
+                Message :<br />
+                <textarea cols="30" rows="5" id="inpMessage"></textarea>
+            </div>
+            <br />Please do not submit any
+            <br />Protected Health Information (PHI)
+            <hr />
+            <input type="button" value="Send" onclick="SendMessage(this)" />
+        </div>
+
+        <div class="">
+            <h3>
+                Many Pathways Counseling
+                <br />(331) 210-1005
+
+            </h3>
+            <h5>
+                <b><a href="mailto:callMyTherapist@outlook.com">callMyTherapist@outlook.com</a></b>
+                <br>
+                <span style='color: silver;'>◅</span>
+                Do not disclose confidential information in emails
+                <span style='color: silver;'>▻</span>
+            </h5>
+            
+            <hr />
+
+            <br>In person or telehealth appointments are available.  In person services provided in Batavia, Illinois
+            <br>Currently accepting Blue Cross Blue Shield, Magellan and Cigna
+            <br>Payment is expected at time of service. Fee without insurance is $160 per hour
+            <br>Courtesy billing for out of network insurance can be provided
+          
+
+            <hr />
+            
+            <a href='https://www.cms.gov/files/document/nosurpriseactfactsheet-final508.pdf' target='_blank' >No Surprises</a>
+            <br>Understand your rights against
+            <br>surprise medical bills 
+
+            <hr />
+            
+            <a href='privacyPractices.html' target='_blank'>Privacy Practices</a>
+            
+        </div>
+
+
+    </div>
+
+    
+</body>
+
+</html> 
